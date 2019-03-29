@@ -2,7 +2,7 @@
 ## ENGG1340 Group39
 
 ### Problem Statement
-Managing financial status easily on the user’s system is a trend nowadays. We aim to develop an accounting system to help users keep track of their financial status without spending much time and provide some financial advice such as setting daily budgets.
+Managing financial status easily on the user’s system is a trend nowadays. Hand-written accounting takes longer time and has lower security than online system. We aim to develop an accounting system to help users keep track of their financial status without spending much time and provide some financial advice such as setting daily budgets.
 
 ### Problem Setting
 - Users record their expense and income frequently
@@ -36,6 +36,7 @@ The designed program will contain the following features:
    - The total amount the user has saved in this month（which is the total amount of the difference between daily budget and daily expense)
    - The amount needed to be saved in the rest of the month
    - Advised daily saving amount
+8) **The system allows users to set a password to ensure security. The system will require the password to login once it is set**
    
 ### Reference List
 The idea was from **Li Shumin, TA of ENGG1340, the University of Hong Kong**.
