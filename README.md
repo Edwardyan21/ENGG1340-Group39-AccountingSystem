@@ -41,8 +41,8 @@ The designed program will contain the following features:
 The idea was from **Li Shumin, TA of ENGG1340, the University of Hong Kong**.
 
 ### About Contributors
-**Chen Jieying, Jenny** Member of Group 39, BEng year 1 student, the University of Hong Kong.
+**Chen Jieying, Jenny** Member of Group 39, BEng year 1 student, the University of Hong Kong.    
 email: **_jennycjy@connect.hku.hk_**
 
-**Yan Junchen, Edward** Member of Group 39, BEng year 1 student, the University of Hong Kong. 
+**Yan Junchen, Edward** Member of Group 39, BEng year 1 student, the University of Hong Kong.   
 email: **_yjc3328@connect.hku.hk_**
