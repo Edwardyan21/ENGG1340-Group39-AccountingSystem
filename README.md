@@ -12,27 +12,27 @@ Managing financial status easily on user’s system is a trend nowadays. We aim 
 
 ### Program Features
 The designed program will contain the following features: 
-1) Add records of income and expenses:
+1) **Add records of income and expenses:**
    - The record of different currency will be calculated into major currency
    - Simple calculations(add, subtract, multiplication, and division) are allowed
-2) The records can contain some basic information:
+2) **The records can contain some basic information:**
    - Amount
    - Equivalent amount(for foreign currency)
    - Date
    - Types of income or expense(such as food, transportation, salary and so on)
    - Account (such as cash, bank card, and credit card)
-3) The records could be deleted and edited at any time:
+3) **The records could be deleted and edited at any time:**
    - Records of a whole day could be deleted at once
    - Nearest deleted data will be able to resume
-4) Users could view their records by date, type, and account 
-5) The system will provide statistical report of users’ financial status to help users measure their budget plans:
+4) **Users could view their records by date, type, and account** 
+5) **The system will provide statistical report of users’ financial status to help users measure their budget plans:**
    - Monthly income and expenses
    - Percentage of different kinds of expenses
    - Top 3 daily expenses 
-6) The system allows budget setting. 
+6) **The system allows budget setting:**
    - Alerts when expenses reach the budget (or the setting percentage of the budget)
    - Different weights can be applied to different days (like more budgets on the weekends than the weekdays)
-7) The system allows users to simulate a special event in the month. Users enter planned expense of an event and the system will tell the user:
+7) **The system allows users to simulate a special event in the month. Users enter planned expense of an event and the system will tell the user:**
    - Total amount the user has saved in this month（which is the total amount of the difference between daily budget and daily expense)
    - The amount needed to be saved in the rest of the month
    - Advised daily saving amount
