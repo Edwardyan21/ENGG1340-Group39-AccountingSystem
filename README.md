@@ -2,7 +2,7 @@
 ## ENGG1340 Group39
 
 ### Problem Statement
-Managing financial status easily on the user’s system is a trend nowadays. Hand-written accounting takes longer time and has lower security than online system. We aim to develop an accounting system to help users keep track of their financial status without spending much time and provide some financial advice such as setting daily budgets.
+Managing financial status easily on the user’s system is a trend nowadays. Hand-written accounting takes longer time and has lower security than online system. We aim to develop an accounting system with some powerful and easy-to-use functions to help users keep track of their financial status without spending much time and provide some financial advice such as setting daily budgets.
 
 ### Problem Setting
 - Users record their expense and income frequently
