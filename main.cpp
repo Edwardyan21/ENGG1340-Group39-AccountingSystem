@@ -6,8 +6,8 @@
 #include<string>
 #include<cctype>
 #include "interface.h"
-#include "userinfo.h"
-
+#include "customer.h"
+#include "password.h"
 using namespace std;
 
 
