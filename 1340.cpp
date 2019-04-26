@@ -46,7 +46,7 @@ int ChooseType(){
 	cout << "Please choose the currency type:" << endl;
 	cout << "1. HKD  2. CNY  3. USD  4. GBP  5. JPY" << endl;
 	cin >> n;
-	while ( n < 1 && n > 5){
+	while ( n < 1 || n > 5){
 		cout << "This type is invalid. Choose one from the provided currency: ";
 		cin >> n;
 	}
@@ -58,7 +58,7 @@ int ChooseAccount(){
 	cout << "Please choose the account you want to use: " << endl;
 	cout << "1. cash  2. bank card  3. credit card" << endl;
 	cin >> n;
-	while ( n < 1 && n > 3){
+	while ( n < 1 || n > 3){
 		cout << "This type is invalid. Choose one from the provided currency: ";
 		cin >> n;
 	}
