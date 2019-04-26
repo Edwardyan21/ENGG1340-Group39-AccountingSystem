@@ -19,7 +19,7 @@ void interface()
     cout << string(30, '*') << endl;
     string fill_s = "      ";
     cout           << "What would you like to do?" << endl;
-    cout << fill_s << "1. Add a financial status" << endl;
+    cout << fill_s << "1. Change a financial status" << endl;
     cout << fill_s << "2. View my status" << endl;
     cout << fill_s << "3. Budgets" << endl;
     cout << fill_s << "4. Personal information" << endl;
