@@ -18,6 +18,7 @@ void interface()
   while (true)
   {
     //welcome xxx!
+    //show the menu
     cout << string(30, '*') << endl;
     string fill_s = "      ";
     cout           << "What would you like to do?" << endl;
@@ -59,25 +60,25 @@ void interface()
         }
         if (opt_1 == 1)
         {
-          add_status();
+          add_status();//add a record
           break;
         }
         else
         {
-          del_status();
+          del_status();//delete a record
           break;
         }
       }
       case 2:
       {
         cout << string(30, '*') << endl;
-        view_status();
+        view_status();//view the current status
         break;
       }
       case 3:
       {
         cout << string(30, '*') << endl;
-        budgets();
+        budgets();//set the budget or check whether the user has reached the budget
         break;
       }
       case 4:
@@ -95,7 +96,7 @@ void interface()
           cin >> opt_4;
         }
         bool check = true;
-        if (opt_4 == 1)
+        if (opt_4 == 1)//change the username
         {
   
           cout << "Please set your name in no more than 20 characters: ";
@@ -136,9 +137,9 @@ void interface()
               cout << "You have entered the wrong password for three times." << endl;
               check = false;
               break;
-            }
+            }//only allow the user to enter three times
           }
-          if(!check) break;
+          if(!check) break;//check whether user has enter the wrong key for three times
           cout << "Please set your new password in no more than 20 characters: ";
           getline(cin, user_keys);
           while (user_keys.length() > 20 || user_keys == "")
