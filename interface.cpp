@@ -83,21 +83,50 @@ void interface()
             cout << "Too long! Set another one: ";
             getline(cin, user_name);
           }
+           while (user_name == "")
+          {
+            cout << "Empty user name! Set another one: ";
+            getline(cin, user_name);
+          }
           store_username(user_name);
           cout << "Success!" << endl;
         }
         else
         {
-          /*
-
-                    verify the password
-
-          */
-          /*
-
-                    set the new password
-
-          */
+          cout << "Please enter your old password: ";
+          getline(cin, user_keys);
+          int n = 0;
+          while (enc(user_keys) != keys){
+            n++;
+            if (n == 1){
+              cout << "Wrong! You have 2 trails left. Please try again: ";
+              getline(cin, user_keys);
+            }
+            if (n == 2){
+              cout << "Wrong! You have 1 trails left. Please try again: ";
+              getline(cin, user_keys);
+            }
+            if (n == 3){
+              cout << "You have entered the wrong password for three times." << endl;
+              break;
+            }
+          }
+          cout << "Please set your new password in no more than 20 characters: ";
+          getline(cin, user_keys);
+          while (user_keys.length() > 20)
+          {
+            cout << "Too long! Try another one: ";
+            getline(cin, user_keys);
+          }
+          while (user_keys == "")
+          {
+            cout << "Empty key! Set another one: ";
+            getline(cin, user_keys);
+          }
+          cout << "Okay! Setting..." <<endl;
+          store_userkeys(user_keys); // will be encrypted
+          cout << "Success! Now you can use your key: \"" << user_keys << "\" to log in!" << endl;
+          cout << endl;
         }
         break;
       }
