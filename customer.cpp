@@ -8,8 +8,8 @@
 #include<cctype>
 #include "customer.h"
 #include "transfer.h"
-
-/*class record
+using namespace std;
+class record
 {
   public:
     int get_cur() { return currency; }
@@ -31,13 +31,13 @@
     int currency;
     int month, date, category, account;
     double amount;
-};*/
+};
 
 
 //detailstatus.txt: month date amount currency category account
 //category: 1. Food 2. Transportation 3. Living expense 4. Shopping 5. Education 6. Others 7. Salary 8. Prizes 9. Presents 10. Otherrewards
 //account: 1. Bank 2. Credit 3. Cash
-using namespace std;
+
 /*
     content: 1. Add a financial status --> income / expense
             2. View my status --> recent 10 details / get your report of the month-->top three, categories,
@@ -162,6 +162,9 @@ void view_status()
   }
   delete [] users;
 }
+
+
+
 void budgets()
 {
   string fill_s = "      ";
@@ -180,7 +183,7 @@ void budgets()
   if (tmpi == 1)
   {
     cout << string(30, '*') << endl;
-    cout << "Enter your expected budgets, positive integer smaller than 10million only: " << endl;
+    cout << "Enter your expected budgets, positive integer smaller than 10 million only: " << endl;
     int tmpi2;
     cin >> tmpi2;
     while (tmpi2 <= 0 || tmpi2 >= 100000000)
@@ -196,6 +199,61 @@ void budgets()
   }
   else
   {
-    
+    cout << string(30, '*') << endl;
+    cout << "From which month till now?" ;
+    int tmpi2;
+    cin >> tmpi2;
+    while (tmpi2 < 1 || tmpi2 > 12)
+    {
+      cout << "Opps, wrong choice, please try again: " << endl;
+      cin >> tmpi2;
+    }
+    ifstream finb2;
+    finb2.open("user_budgets.txt");
+    if (finb2.fail())
+    {
+      cout << "Opps, it seems that you haven't set your budgets yet..." << endl;
+      return;
+    }
+    double tot_bud;
+    finb2 >> tot_bud;
+    finb2.close();
+    finb2.clear();
+
+    ifstream finb;
+    finb.open("detailstatus.txt");
+    if (finb.fail())
+    {
+      cout << "You haven't spend any money! Relax!" << endl;
+      return;
+    }
+    int tot;
+    finb >> tot;
+    int mon1, date1, cur1, cate1, acc1;
+    double amo1, tot_amo = 0;
+    int cur_mon = tmpi2;
+    for (int i = 0; i < tot; i++)
+    {
+      finb >> mon1 >> date1 >> amo1 >> cur1 >> cate1 >> acc1;
+      if (cur_mon < mon1)
+        cur_mon = mon1;
+      if (cur_mon >= tmpi2)
+        tot_amo += change(amo1, cur1);
+    }
+    finb.close();
+    finb.clear();
+    tot_bud *= (cur_mon - tmpi2 + 1);
+    tot_amo *= -1;
+    if (tot_amo > tot_bud)
+    {
+      cout << "Oh no, you've spend too much! It is " << fixed << setprecision(2) << tot_amo-tot_bud;
+      cout << " over the budget!" << endl;
+    }
+    else
+    {
+      cout << "From month " << tmpi2 << " to " << cur_mon << ", your budget is ";
+      cout << fixed << setprecision(0) << tot_bud <<" HKD, you have ";
+      cout << fixed << setprecision(2) << tot_bud-tot_amo << " left." <<endl;
+    }
   }
 }
