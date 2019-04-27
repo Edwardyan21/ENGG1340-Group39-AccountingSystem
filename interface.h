@@ -12,6 +12,7 @@
 #include "customer.h"
 #include "transfer.h"
 #include "password.h"
+using namespace std;
 /*
 To do: Welcome page+content
 content: 1. Add a financial status --> income / expense
