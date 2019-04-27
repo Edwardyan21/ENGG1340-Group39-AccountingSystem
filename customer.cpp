@@ -194,6 +194,7 @@ void del_status()
 		users[i].set_acc(ac);
 	}
 	find.close();
+	find.clear();
 	int a = 0;
 	for (int i = 0; i < tot; i++){
 		if (users[i].get_month() == month && users[i].get_date() == date){
@@ -255,6 +256,7 @@ void del_status()
 	delete [] users;
 	delete [] del;
 	foutd.close();
+	foutd.clear();
 }
 
 void view_status()
