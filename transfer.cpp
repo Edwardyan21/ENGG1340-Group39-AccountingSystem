@@ -10,6 +10,8 @@
 using namespace std;
 //category: 1. Food 2. Transportation 3. Living expense 4. Shopping 5. Education 6. Others 7. Salary 8. Prizes 9. Presents 10. Otherrewards
 //account: 1. Bank 2. Credit 3. Cash
+
+//This function is used to transfer the order number of category to the word.
 string transfer_category(int u_in)
 {
   string res;
@@ -49,6 +51,7 @@ string transfer_category(int u_in)
   return res;
 }
 
+//This function is used to transfer the order number of account type to the word.
 string transfer_account(int u_in)
 {
   string res;
@@ -67,6 +70,7 @@ string transfer_account(int u_in)
   return res;
 }
 
+//This function is used to transfer the order number of currency type to the word.
 string transfer_currency(int u_in)
 {
   string res;
@@ -91,6 +95,7 @@ string transfer_currency(int u_in)
   return res;
 }
 
+//This function enables the calculation when the user are adding the record.
 double Calculate_money(string user_input)
 {
   if (user_input[0] == '-' || user_input[0] == '+')
@@ -133,6 +138,7 @@ double Calculate_money(string user_input)
   return result;
 }
 
+//This function is used to change the currency types of different records into HKD.
 double change(double amo, int cur){
 	if (cur != 1){
 		if (cur == 2){
