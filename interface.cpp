@@ -79,6 +79,7 @@ void interface()
   
           cout << "Please set your name in no more than 20 characters: ";
           getline(cin, user_name);
+          getline(cin, user_name);
           while (user_name.length() > 20 || user_name == "")
           {
             if(user_name == ""){
@@ -96,6 +97,7 @@ void interface()
         else
         {
           cout << "Please enter your old password: ";
+          getline(cin, user_keys);
           getline(cin, user_keys);
           string keys = get_userkeys();
           int n = 0;
