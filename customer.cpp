@@ -364,7 +364,6 @@ void view_status()
 void budgets()
 {
   string fill_s = "      ";
-  cout << string(30, '*') << endl;
   cout           << "What would you like to do?" << endl;
   cout << fill_s << "1. Set my monthly budgets" << endl;
   cout << fill_s << "2. How much could I spend..." << endl;
