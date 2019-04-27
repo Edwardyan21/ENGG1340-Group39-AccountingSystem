@@ -292,7 +292,6 @@ void view_status()
   finv.close();
   finv.clear();
   string fill_s = "      ";
-  cout << string(30, '*') << endl;
   cout           << "What would you like to do?" << endl;
   cout << fill_s << "1. View my recent 10 details" << endl;
   cout << fill_s << "2. View my monthly report" << endl;
