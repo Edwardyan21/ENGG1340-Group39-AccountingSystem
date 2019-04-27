@@ -117,7 +117,9 @@ void add_status()
 	  users[i].set_cur(cur);
 	  users[i].set_cat(cat);
 	  users[i].set_acc(ac);
-	  tot_m += change(am, cur);
+	  if(m == month){
+		  tot_m += change(am, cur);
+	  }
   }
   fina.close();
   fina.clear();
