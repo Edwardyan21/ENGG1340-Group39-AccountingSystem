@@ -3,6 +3,7 @@
 #include<fstream>
 using namespace std;
 
+//This function is used to check whether it is the first-time user.
 bool is_firsttime(){
 	ifstream fin;
 	fin.open("UserName.txt");
@@ -10,6 +11,7 @@ bool is_firsttime(){
 	else return false;
 }
 
+//This function is used to store the username in a file so that it can be usedthe next time that the user wants to log in.
 void store_username(string un){
 	ofstream uout;
 	uout.open("UserName.txt");
@@ -17,6 +19,7 @@ void store_username(string un){
 	uout.close();
 }
 
+//This function is used to encrypt a password when storing it.
 string enc(string a){
 	for (int i = 0; i < a.length(); i++){
 		if (a[i] >= 'a' && a[i] <= 'z'){
@@ -32,14 +35,16 @@ string enc(string a){
 	return a;
 } 
 
+//This function is used to store the password in a file so that it can be used the next time that the user wants to log in.
 void store_userkeys(string uk){
-	uk = enc(uk);
+	uk = enc(uk);//encrypt the password
 	ofstream pout;
 	pout.open("KeySecured.txt");
 	pout << uk;
 	pout.close();
 }
 
+//This function is used to get the stored username from the file.
 string get_username(){
 	ifstream fin;
 	string un;
@@ -49,6 +54,7 @@ string get_username(){
 	return un;
 }
 
+//This function is used to get the stored password from the file.
 string get_userkeys(){
 	ifstream pin;
 	string pw;
