@@ -9,8 +9,9 @@
 #include<fstream>
 #include<cctype>
 #include<iomanip>
-#include ""
-#include ""
+#include "customer.h"
+#include "transfer.h"
+#include "password.h"
 /*
 To do: Welcome page+content
 content: 1. Add a financial status --> income / expense
