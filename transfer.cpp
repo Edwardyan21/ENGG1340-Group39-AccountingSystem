@@ -7,6 +7,7 @@
 #include<fstream>
 #include<cctype>
 #include "transfer.h"
+using namespace std;
 //category: 1. Food 2. Transportation 3. Living expense 4. Shopping 5. Education 6. Others 7. Salary 8. Prizes 9. Presents 10. Otherrewards
 //account: 1. Bank 2. Credit 3. Cash
 string transfer_category(int u_in)
@@ -99,7 +100,7 @@ double Calculate_money(string user_input)
   double result = 0, tmp=0;
   for (int i = 0; i < user_input.length(); i++)
   {
-    if （user_input[i] >= '0' && user_input[i] <= '9')
+    if (user_input[i] >= '0' && user_input[i] <= '9')
     {
       num_s.insert(num_s.length(), user_input.substr(i, 1));
       if (num_s.length() > 8)
@@ -116,7 +117,7 @@ double Calculate_money(string user_input)
       num_s = "";
       flag = (user_input[i] == '+' ? 1 : -1);
     }
-    else 
+    else
     {
       cout << "Opps, wrong expression!" << endl;
       return 0;
