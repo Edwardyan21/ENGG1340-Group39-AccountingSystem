@@ -13,14 +13,14 @@
 class record
 {
   public:
-    string get_cur() { return currency; }
+    int get_cur() { return currency; }
     int get_month() { return month; }
     int get_date() { return date; }
     int get_cat() { return category; }
     double get_amo() { return amount; }
     int get_acc() { return account; }
     
-    void set_cur(string s) { currency = s;}
+    void set_cur(int s) { currency = s;}
     void set_month(int num) { month = num; }
     void set_date(int num) { date = num; }
     void set_cat(int num) { category = num; }
@@ -29,7 +29,7 @@ class record
 
 
   private:
-    string currency;
+    int currency;
     int month, date, category, account;
     double amount;
 };
