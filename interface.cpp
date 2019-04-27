@@ -74,6 +74,7 @@ void interface()
           cout << "Opps, wrong choice...please try again: ";
           cin >> opt_4;
         }
+        bool check = true;
         if (opt_4 == 1)
         {
   
@@ -113,9 +114,11 @@ void interface()
             }
             if (n == 3){
               cout << "You have entered the wrong password for three times." << endl;
+              check = false;
               break;
             }
           }
+          if(!check) break;
           cout << "Please set your new password in no more than 20 characters: ";
           getline(cin, user_keys);
           while (user_keys.length() > 20 || user_keys == "")
