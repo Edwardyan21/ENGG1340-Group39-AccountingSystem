@@ -39,6 +39,11 @@ int main()
       cout << "Too long! Try another one: ";
       getline(cin, user_keys);
     }
+    while (user_keys == "")
+    {
+      cout << "Empty key! Set another one: ";
+      getline(cin, user_keys);
+    }
     cout << "Okay! Setting..." <<endl;
     store_username(user_name);
     store_userkeys(user_keys); // will be encrypted
