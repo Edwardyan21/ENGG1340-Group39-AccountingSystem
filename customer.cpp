@@ -89,7 +89,7 @@ void add_status()
 			amount*= -1;
 		}
 	cout << "Please choose the account you want to use: " << endl;
-	cout << "1. Bank Card 2. Credit Card  3. Cash" << endl;
+	cout << "1. Bank Card  2. Credit Card  3. Cash" << endl;
 	cin >> account;
 	while ( account < 1 || account > 3){
 		cout << "This type is invalid. Choose one from the provided currency: ";
@@ -139,6 +139,7 @@ void add_status()
 	for (int p = 0; p < tot; p++){
 		fouta << users_n[p].get_month() << " " << users_n[p].get_date() << " " << users_n[p].get_amo() << " " << users_n[p].get_cur() << " " << users_n[p].get_cat() << " " << users_n[p].get_acc() << endl;
 	}
+	cout << "Success!" << endl;
 	delete [] users;
 	delete [] users_n;
 	fouta.close();
