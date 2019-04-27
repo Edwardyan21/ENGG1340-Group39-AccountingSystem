@@ -132,3 +132,21 @@ double Calculate_money(string user_input)
   }
   return result;
 }
+
+double change(double amo, int cur){
+	if (cur != 1){
+		if (cur == 2){
+			amo = 1.17 * amo;
+		}
+		else if (cur == 3){
+			amo = 7.84 * amo;
+		}
+		else if (cur == 4){
+			amo = 10.14 * amo;
+		}
+		else if (cur == 5){
+			amo = 0.070 * amo;
+		}
+	}
+	return amo;
+}
