@@ -7,6 +7,7 @@
 #include<cctype>
 #include<iomanip>
 #include "interface.h"
+#include "password.h"
 #include 
 using namespace std;
 void interface()
