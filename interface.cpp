@@ -8,7 +8,8 @@
 #include<iomanip>
 #include "interface.h"
 #include "password.h"
-#include 
+#include "customer.h"
+#include "transfer.h"
 using namespace std;
 void interface()
 {
