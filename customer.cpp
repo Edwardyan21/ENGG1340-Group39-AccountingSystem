@@ -178,7 +178,7 @@ void del_status()
 		if (users[i].get_month() == month && users[i].get_date() == date){
 			cout << left;
       		cout << setw(3) << users[i].get_month() << setw(3) << users[i].get_date();
-      		cout << setw(15) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
+      		cout << setw(15) << fixed << setprecision(2) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
       		cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       		cout << endl;
       		a += 1;
