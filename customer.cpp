@@ -57,6 +57,8 @@ string fill_s = "      ";
     cout << fill_s << "5. Quit" << endl;
     cout           << "Your choice: ";
 */
+
+//This function is used to get the record from the user and add it to the file.
 void add_status()
 {
   int month, date, currency, cate, account, m, d, cur, cat, ac;
@@ -120,7 +122,7 @@ void add_status()
 	  if(m == month){
 		  tot_m += change(am, cur);
 	  }
-  }
+  }//read the previous records from the file
   fina.close();
   fina.clear();
   ifstream finb2;
@@ -135,7 +137,7 @@ void add_status()
       	  else if ((0 - tot_m) == tot_bud){
       		  cout << "You have reached the budget!" << endl;
       	  }
-  }
+  }//check if the user has reached the budget
   finb2.close();
   finb2.clear();
   record *users_n = new record[tot + 1];
@@ -146,7 +148,6 @@ void add_status()
 	  }
 	  else break;
   }
-	
   users_n[i].set_month(month);
   users_n[i].set_date(date);
   users_n[i].set_amo(amount);
@@ -164,11 +165,12 @@ void add_status()
 	  fouta << users_n[p].get_month() << " " << users_n[p].get_date() << " " << users_n[p].get_amo() << " " << users_n[p].get_cur() << " " << users_n[p].get_cat() << " " << users_n[p].get_acc() << endl;
   }
   delete [] users;
-  delete [] users_n;
+  delete [] users_n;//free the space
   fouta.close();
   fouta.clear();
 }
 
+//This function is used to delete records from the file.
 void del_status()
 {
   int month, date, m, d, cur, cat, ac;
@@ -223,16 +225,16 @@ void del_status()
 		if (users[i].get_month() == month && users[i].get_date() == date){
 			b+=1;
 			if (b == n) {
-			cout << right;
-      			cout << setw(2) << users[i].get_month() << "." << left << setw(2) << users[i].get_date();
-      			cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
-      			cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
-      			cout << "\nAre you sure you want to delete this record?(Y/N)";
-      			cin >> c;
-      			if (c == 'Y'){
-      				check = false;
+				cout << right;
+				cout << setw(2) << users[i].get_month() << "." << left << setw(2) << users[i].get_date();
+				cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
+				cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
+				cout << "\nAre you sure that you want to delete this record?(Y/N)";//double check
+				cin >> c;
+				if (c == 'Y'){
+					check = false;
 					continue;
-      			}
+				}
 			}
 		}
 		if(check){
@@ -244,7 +246,8 @@ void del_status()
 	}
 	ofstream foutd;
 	foutd.open("detailstatus.txt");
-	if(check){
+	if(check)//write the records back
+	{
 		foutd << tot << endl; 
 		for (int p = 0; p < tot ; p++){
 			foutd << del[p].get_month() << " " << del[p].get_date() << " " << del[p].get_amo() << " " << del[p].get_cur() << " " << del[p].get_cat() << " " << del[p].get_acc() << endl;
@@ -257,11 +260,12 @@ void del_status()
 		}
 	}
 	delete [] users;
-	delete [] del;
+	delete [] del;//free the space
 	foutd.close();
 	foutd.clear();
 }
 
+//This function is used to show the users his financial records.
 void view_status()
 {
   ifstream finv;
@@ -356,11 +360,10 @@ void view_status()
     delete [] tot_cate;
     delete [] tot_acc;
   }
-  delete [] users;
+  delete [] users;//free the space
 }
 
-
-
+//This function enable the user to set a budget and check their financial status.
 void budgets()
 {
   string fill_s = "      ";
@@ -375,7 +378,7 @@ void budgets()
     cout << "Opps, wrong choice, please try again: " << endl;
     cin >> tmpi;
   }
-  if (tmpi == 1)
+  if (tmpi == 1)//set a budget
   {
     cout << string(30, '*') << endl;
     cout << "Enter your expected budgets, positive integer smaller than 10 million only: " << endl;
@@ -392,7 +395,7 @@ void budgets()
     foutb.close();
     foutb.clear();
   }
-  else
+  else//check the status
   {
     cout << string(30, '*') << endl;
     cout << "From which month till now?" ;
