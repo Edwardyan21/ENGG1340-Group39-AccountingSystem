@@ -59,12 +59,183 @@ string fill_s = "      ";
 */
 void add_status()
 {
-
+  int month, date, currency, cate, account, m, d, cur, cat, ac;
+	double amount, am;
+	cout << "Please enter the month: ";
+	cin >> month;
+	while (month > 12 || month < 1) {
+		cout << "Invalid! Try again: ";
+		cin >> month;
+	}
+	cout << "Please enter the date: ";
+	cin >> date;
+	cout << "Please enter the amount: ";
+	cin >> amount;
+	cout << "Please choose the currency type: " << endl;
+	cout << "1. HKD  2. CNY  3. USD  4. GBP  5. JPY" << endl;
+	cin >> currency;
+	while ( currency < 1 || currency > 5){
+		cout << "This type is invalid. Choose one from the provided currency: ";
+		cin >> currency;
+	}
+	cout << "Please choose the category: " << endl;
+	cout << "1. Food \n2. Transportation \n3. Living expense \n4. Shopping \n5. Education \n6. Otherexpense \n7. Salary \n8. Prizes \n9. Presents \n10.Otherincomes " << endl;
+	cin >> cate;
+	while ( cate < 1 || cate > 10){
+		cout << "This category is invalid. Try again: ";
+		cin >> cate;
+	}
+	if (cate <= 6 && cate >= 1){
+			amount*= -1;
+		}
+	cout << "Please choose the account you want to use: " << endl;
+	cout << "1. Bank Card 2. Credit Card  3. Cash" << endl;
+	cin >> account;
+	while ( account < 1 || account > 3){
+		cout << "This type is invalid. Choose one from the provided currency: ";
+		cin >> account;
+	}
+	int tot;
+	ifstream fina;
+	fina.open("detailstatus.txt");
+	if(fina.fail()){
+		tot = 0;
+	}
+	else{
+		fina >> tot;
+	}
+	record *users = new record[tot];
+	for (int i = 0; i < tot; i++){
+		fina >> m >> d >> am >> cur >> cat >> ac; 
+		users[i].set_month(m);
+		users[i].set_date(d);
+		users[i].set_amo(am);
+		users[i].set_cur(cur);
+		users[i].set_cat(cat);
+		users[i].set_acc(ac);
+	}
+	fina.close();
+	record *users_n = new record[tot + 1];
+	int i = 0;
+	for (i = 0; i < tot; i++){
+		if (users[i].get_month() <= month || (users[i].get_date() <= date && users[i].get_month() == month)){
+			users_n[i] = users[i];
+		}
+		else break;
+	}
+ 	users_n[i].set_month(month);
+	users_n[i].set_date(date);
+	users_n[i].set_amo(amount);
+	users_n[i].set_cur(currency);
+	users_n[i].set_cat(cate);
+	users_n[i].set_acc(account);
+	for (int j = i + 1; j < tot + 1; j++){
+		users_n[j] = users[j - 1];
+	}
+	tot = tot + 1; 
+	ofstream fouta;
+	fouta.open("detailstatus.txt");
+	fouta << tot << endl; 
+	for (int p = 0; p < tot; p++){
+		fouta << users_n[p].get_month() << " " << users_n[p].get_date() << " " << users_n[p].get_amo() << " " << users_n[p].get_cur() << " " << users_n[p].get_cat() << " " << users_n[p].get_acc() << endl;
+	}
+	delete [] users;
+	delete [] users_n;
+	fouta.close();
 }
+
 void del_status()
 {
-
+  int month, date, m, d, cur, cat, ac;
+	double am;
+	cout << "Please enter the month of the record you want to delete: ";
+	cin >> month;
+	cout << "Please enter the date: ";
+	cin >> date;
+	int tot;
+	ifstream find;
+	find.open("detailstatus.txt");
+	if(find.fail()){
+		cout << "There's no status available now, try to add some first!" << endl;
+		return;
+	}
+	find >> tot;
+	record *users = new record[tot];
+	record *del = new record[tot - 1];
+	for (int i = 0; i < tot; i++){
+		find >> m >> d >> am >> cur >> cat >> ac; 
+		users[i].set_month(m);
+		users[i].set_date(d);
+		users[i].set_amo(am);
+		users[i].set_cur(cur);
+		users[i].set_cat(cat);
+		users[i].set_acc(ac);
+	}
+	find.close();
+	int a = 0;
+	for (int i = 0; i < tot; i++){
+		if (users[i].get_month() == month && users[i].get_date() == date){
+			cout << left;
+      		cout << setw(3) << users[i].get_month() << setw(3) << users[i].get_date();
+      		cout << setw(15) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
+      		cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
+      		cout << endl;
+      		a += 1;
+		}
+	}
+	int n;
+	cout << "Choose the record that you want to delete(please indicate its order): ";
+	cin >> n;
+	while(n > a || n <= 0){
+		cout << "Out of range! Try again: ";
+		cin >> n;
+	}
+	int b = 0;
+	char c;
+	bool check = true;
+	for (int i = 0; i < tot; i++){
+		if (users[i].get_month() == month && users[i].get_date() == date){
+			b+=1;
+			if (b == n) {
+				cout << left;
+      			cout << setw(3) << users[i].get_month() << setw(3) << users[i].get_date();
+      			cout << setw(15) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
+      			cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
+      			cout << "Are you sure you want to delete this record?(Y/N)";
+      			cin >> c;
+      			if (c == 'Y'){
+      				check = false;
+					continue;
+      			}
+			}
+		}
+		if(check){
+			del[i] = users[i];
+		}
+		else{
+			del[i - 1] = users[i];
+		}
+	}
+	ofstream foutd;
+	foutd.open("detailstatus.txt");
+	if(check){
+		foutd << tot  << endl; 
+		for (int p = 0; p < tot ; p++){
+			foutd << del[p].get_month() << " " << del[p].get_date() << " " << del[p].get_amo() << " " << del[p].get_cur() << " " << del[p].get_cat() << " " << del[p].get_acc() << endl;
+		}
+	}
+	else{
+		foutd << tot - 1 << endl; 
+		for (int p = 0; p < tot - 1; p++){
+			foutd << del[p].get_month() << " " << del[p].get_date() << " " << del[p].get_amo() << " " << del[p].get_cur() << " " << del[p].get_cat() << " " << del[p].get_acc() << endl;
+		}
+	}
+	
+	delete [] users;
+	delete [] del;
+	foutd.close();
 }
+
 void view_status()
 {
   ifstream finv;
