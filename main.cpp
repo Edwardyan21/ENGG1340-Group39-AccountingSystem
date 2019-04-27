@@ -55,12 +55,23 @@ int main()
   user_name = get_username();
   string keys = get_userkeys();
   cout << "Welcome " << user_name << "!\nPlease enter your password:";
-  cin >> user_keys;
-  while (enc(user_keys) != keys)
-  {
-    cout << "Opps, wrong keys, Please try again: ";
-  }
-
+  getline(cin, user_keys);
+  int n = 0;
+  while (enc(user_keys) != keys){
+		n++;
+		if (n == 1){
+			cout << "Wrong! You have 2 trails left. Please try again: ";
+      getline(cin, user_keys);
+		}
+		if (n == 2){
+			cout << "Wrong! You have 1 trails left. Please try again: ";
+      getline(cin, user_keys);
+		}
+		if (n == 3){
+			cout << "You have entered the wrong password for three times. You are forced to exit." << endl;
+			exit(1);
+		}
+	}
   //correct keys and log in
   cout << "Correct! Logging you in..." << endl;
   interface();
