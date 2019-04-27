@@ -129,8 +129,8 @@ void add_status()
       	  if ((0 - tot_m) > tot_bud){
       	  	  cout << "You have gone over the budget!" << endl;
           }
-      	  else if (tot_m = tot_bud){
-      		  cout << "You have reach the budget!" << endl;
+      	  else if ((0 - tot_m) == tot_bud){
+      		  cout << "You have reached the budget!" << endl;
       	  }
   }
   finb2.close();
