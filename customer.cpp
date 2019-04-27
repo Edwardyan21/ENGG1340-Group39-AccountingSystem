@@ -162,7 +162,7 @@ void del_status()
 	}
 	find >> tot;
 	record *users = new record[tot];
-	record *del = new record[tot - 1];
+	record *del = new record[tot];
 	for (int i = 0; i < tot; i++){
 		find >> m >> d >> am >> cur >> cat >> ac; 
 		users[i].set_month(m);
@@ -220,7 +220,7 @@ void del_status()
 	ofstream foutd;
 	foutd.open("detailstatus.txt");
 	if(check){
-		foutd << tot  << endl; 
+		foutd << tot << endl; 
 		for (int p = 0; p < tot ; p++){
 			foutd << del[p].get_month() << " " << del[p].get_date() << " " << del[p].get_amo() << " " << del[p].get_cur() << " " << del[p].get_cat() << " " << del[p].get_acc() << endl;
 		}
@@ -231,7 +231,6 @@ void del_status()
 			foutd << del[p].get_month() << " " << del[p].get_date() << " " << del[p].get_amo() << " " << del[p].get_cur() << " " << del[p].get_cat() << " " << del[p].get_acc() << endl;
 		}
 	}
-	
 	delete [] users;
 	delete [] del;
 	foutd.close();
