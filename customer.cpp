@@ -183,7 +183,7 @@ void del_status()
 	ifstream find;
 	find.open("detailstatus.txt");
 	if(find.fail()){
-		cout << "There's no status available now, try to add some first!" << endl;
+		cout << "There's no record available now, try to add some first!" << endl;
 		return;
 	}
 	find >> tot;
