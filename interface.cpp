@@ -21,8 +21,8 @@ void interface()
     cout << string(30, '*') << endl;
     string fill_s = "      ";
     cout           << "What would you like to do?" << endl;
-    cout << fill_s << "1. Change a financial status" << endl;
-    cout << fill_s << "2. View my status" << endl;
+    cout << fill_s << "1. Change a financial record" << endl;
+    cout << fill_s << "2. View my record" << endl;
     cout << fill_s << "3. Budgets" << endl;
     cout << fill_s << "4. Personal information" << endl;
     cout << fill_s << "5. Quit" << endl;
@@ -35,7 +35,7 @@ void interface()
       cin >> opt;
     }
     /*
-    content: 1. Add a financial status --> income / expense
+    content: 1. Change a financial record --> add: income / expense; delete
             2. View my status --> recent 10 details / get your report of the month-->top three, categories,
             3. Budgets --> Set my budgets / View my budgets / *Special events
             4. Personal information --> Change my name / Change my password
@@ -46,8 +46,27 @@ void interface()
       case 1:
       {
         cout << string(30, '*') << endl;             //Avoid using system("CLS");
-        add_financial();
-        break;
+        cout           << "What would you like to do?" << endl;
+        cout << fill_s << "1. Add a record" << endl;
+        cout << fill_s << "2. Delete a record" << endl;
+        cout           << "Your choice: ";
+        int opt_1;
+        cin >> opt_1;
+        while (opt_1 < 1 || opt_1 > 2)
+        {
+          cout << "Opps, wrong choice...please try again: ";
+          cin >> opt_1;
+        }
+        if (opt_1 == 1)
+        {
+          add_status();
+          break;
+        }
+        else
+        {
+          del_status();
+          break;
+        }
       }
       case 2:
       {
@@ -98,7 +117,7 @@ void interface()
         }
         else
         {
-          cout << "Please enter your old password: ";
+          cout << "Please enter your original password: ";
           getline(cin, user_keys);
           getline(cin, user_keys);
           string keys = get_userkeys();
@@ -110,7 +129,7 @@ void interface()
               getline(cin, user_keys);
             }
             if (n == 2){
-              cout << "Wrong! You have 1 trails left. Please try again: ";
+              cout << "Wrong! You have 1 trail left. Please try again: ";
               getline(cin, user_keys);
             }
             if (n == 3){
