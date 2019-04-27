@@ -70,9 +70,10 @@ void add_status()
   }
   cout << "Please enter the date: ";
   cin >> date;
-  cout << "Please enter the amount: ";
+  cout << "Please enter the amount(0~9,+,-): ";
   cin >> samount;
   amount = Calculate_money(samount);
+  if (amount < 0) amount = 0;
   cout << "Please choose the currency type: " << endl;
   cout << "1. HKD  2. CNY  3. USD  4. GBP  5. JPY" << endl;
   cin >> currency;
@@ -199,7 +200,7 @@ void del_status()
 	for (int i = 0; i < tot; i++){
 		if (users[i].get_month() == month && users[i].get_date() == date){
 		  cout << right;
-      		  cout << setw(2) << users[i].get_month() << "." << left << setw(3) << users[i].get_date();
+      		  cout << setw(2) << users[i].get_month() << "." << left << setw(2) << users[i].get_date();
       		  cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
       		  cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       		  cout << endl;
@@ -221,7 +222,7 @@ void del_status()
 			b+=1;
 			if (b == n) {
 			cout << right;
-      			cout << setw(2) << users[i].get_month() << "." << left << setw(3) << users[i].get_date();
+      			cout << setw(2) << users[i].get_month() << "." << left << setw(2) << users[i].get_date();
       			cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
       			cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       			cout << "\nAre you sure you want to delete this record?(Y/N)";
@@ -308,7 +309,7 @@ void view_status()
     for (int i = tot-1; i >= (tot-10>=0?tot-10:0); i--)
     {
       cout << right;
-      cout << setw(2) << users[i].get_month() << "." << left << users[i].get_date();
+      cout << setw(2) << users[i].get_month() << "." << left << setw(2) << users[i].get_date();
       cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
       cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       cout << endl;
