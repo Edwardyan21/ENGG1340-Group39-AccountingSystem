@@ -31,7 +31,7 @@ int main()
         cout << "Too long! Try another one: ";
         getline(cin, user_name);
       }
-    }
+    }//set the user name
     cout << "Hello " << user_name << "! Please set your password in no more than 20 characters: ";
     getline(cin, user_keys);
     while (user_keys.length() > 20 || user_keys == "")
@@ -44,7 +44,7 @@ int main()
         cout << "Too long! Try another one: ";
         getline(cin, user_keys);
       }
-    }
+    }//set the password
     cout << "Okay! Setting..." <<endl;
     store_username(user_name);
     store_userkeys(user_keys); // will be encrypted
@@ -62,16 +62,16 @@ int main()
 		n++;
 		if (n == 1){
 			cout << "Wrong! You have 2 trails left. Please try again: ";
-      getline(cin, user_keys);
+      			getline(cin, user_keys);
 		}
 		if (n == 2){
-			cout << "Wrong! You have 1 trails left. Please try again: ";
-      getline(cin, user_keys);
+			cout << "Wrong! You have 1 trail left. Please try again: ";
+      			getline(cin, user_keys);
 		}
 		if (n == 3){
 			cout << "You have entered the wrong password for three times. You are forced to exit." << endl;
 			exit(1);
-		}
+		}//only allow the user to enter the wrong key for three times
 	}
   //correct keys and log in
   cout << "Correct! Logging you in..." << endl;
