@@ -96,6 +96,7 @@ void interface()
         {
           cout << "Please enter your old password: ";
           getline(cin, user_keys);
+          string keys = get_userkeys();
           int n = 0;
           while (enc(user_keys) != keys){
             n++;
