@@ -66,6 +66,30 @@ string transfer_account(int u_in)
   return res;
 }
 
+string transfer_currency(int u_in)
+{
+  string res;
+  switch (u_in)
+  {
+    case 1:
+      res = "HKD";
+      break;
+    case 2:
+      res = "CNY";
+      break;
+    case 3:
+      res = "USD";
+      break;
+    case 4:
+      res = "GBP";
+      break;
+    case 5:
+      res = "JPY";
+      break;
+  }
+  return res;
+}
+
 double Calculate_money(string user_input)
 {
   if (user_input[0] == '-' || user_input[0] == '+')
