@@ -8,6 +8,7 @@
 #include<iomanip>
 #include<fstream>
 #include<cctype>
+using namespace std;
 
 string transfer_category(int);
 string transfer_account(int);
