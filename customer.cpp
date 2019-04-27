@@ -198,12 +198,12 @@ void del_status()
 	int a = 0;
 	for (int i = 0; i < tot; i++){
 		if (users[i].get_month() == month && users[i].get_date() == date){
-			cout << left;
-      		cout << setw(3) << users[i].get_month() << setw(3) << users[i].get_date();
-      		cout << setw(15) << fixed << setprecision(2) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
-      		cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
-      		cout << endl;
-      		a += 1;
+		  cout << right;
+      		  cout << setw(2) << users[i].get_month() << "." << left << setw(3) << users[i].get_date();
+      		  cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
+      		  cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
+      		  cout << endl;
+      		  a += 1;
 		}
 	}
 	int n;
@@ -220,9 +220,9 @@ void del_status()
 		if (users[i].get_month() == month && users[i].get_date() == date){
 			b+=1;
 			if (b == n) {
-				cout << left;
-      			cout << setw(3) << users[i].get_month() << setw(3) << users[i].get_date();
-      			cout << setw(15) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
+			cout << right;
+      			cout << setw(2) << users[i].get_month() << "." << left << setw(3) << users[i].get_date();
+      			cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
       			cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       			cout << "Are you sure you want to delete this record?(Y/N)";
       			cin >> c;
@@ -307,10 +307,10 @@ void view_status()
     cout << string(30, '*') << endl;
     for (int i = tot-1; i >= (tot-10>=0?tot-10:0); i--)
     {
-      cout << left;
-      cout << setw(3) << users[i].get_month() << "." << users[i].get_date();
-      cout << setw(15) << users[i].get_amo() << right << setw(4) << transfer_currency(users[i].get_cur());
-      cout << left << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
+      cout << right;
+      cout << setw(2) << users[i].get_month() << "." << left << users[i].get_date();
+      cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
+      cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       cout << endl;
     }
   }
