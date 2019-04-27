@@ -62,7 +62,7 @@ void add_status()
   int month, date, currency, cate, account, m, d, cur, cat, ac;
   double amount, am;
   string samount;
-  cout << "Please enter the month: ";
+  cout << "Please enter the month(1-12): ";
   cin >> month;
   while (month > 12 || month < 1) {
 	  cout << "Invalid! Try again: ";
@@ -91,7 +91,7 @@ void add_status()
 	  amount*= -1;
   }
   cout << "Please choose the account you want to use: " << endl;
-  cout << "1. Bank Card 2. Credit Card  3. Cash" << endl;
+  cout << "1. Bank Card  2. Credit Card  3. Cash" << endl;
   cin >> account;
   while ( account < 1 || account > 3){
 	  cout << "This type is invalid. Choose one from the provided currency: ";
@@ -308,9 +308,9 @@ void view_status()
     for (int i = tot-1; i >= (tot-10>=0?tot-10:0); i--)
     {
       cout << left;
-      cout << setw(3) << users[i].get_month() << setw(3) << users[i].get_date();
-      cout << setw(15) << users[i].get_amo() << setw(4) << transfer_currency(users[i].get_cur());
-      cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
+      cout << setw(3) << users[i].get_month() << "." << users[i].get_date();
+      cout << setw(15) << users[i].get_amo() << right << setw(4) << transfer_currency(users[i].get_cur());
+      cout << left << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
       cout << endl;
     }
   }
@@ -340,15 +340,15 @@ void view_status()
           max_in = change(users[i].get_amo(), users[i].get_cur());
       }
     }
-    cout << "Your account details: " << endl;
+    cout << "Your account details in HKD: " << endl;
     for (int i = 1; i <= 3; i++)
       cout << fill_s << transfer_account(i) << " " << fixed << setprecision(2) << tot_acc[i] << endl;
-    cout << "For each category: " << endl;
+    cout << "For each category in HKD: " << endl;
     for (int i = 1; i <= 10; i++)
       cout << fill_s << transfer_category(i) << " " << fixed << setprecision(2) << tot_cate[i] << endl;
-    cout << "The maximum expense of the month: " << endl;
+    cout << "The maximum expense of the month in HKD: " << endl;
       cout << fill_s << max_out*(-1) << endl;
-    cout << "The maximun income of the month: " << endl;
+    cout << "The maximun income of the month in HKD: " << endl;
       cout << fill_s << max_in << endl;
     delete [] tot_cate;
     delete [] tot_acc;
