@@ -9,6 +9,7 @@
 #include<fstream>
 #include<cctype>
 #include "transfer.h"
+using namespace std;
 
 class record
 {
