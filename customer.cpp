@@ -61,6 +61,7 @@ void add_status()
 {
   int month, date, currency, cate, account, m, d, cur, cat, ac;
   double amount, am;
+  string samount;
   cout << "Please enter the month: ";
   cin >> month;
   while (month > 12 || month < 1) {
@@ -70,7 +71,8 @@ void add_status()
   cout << "Please enter the date: ";
   cin >> date;
   cout << "Please enter the amount: ";
-  cin >> amount;
+  cin >> samount;
+  amount = Calculate_money(samount);
   cout << "Please choose the currency type: " << endl;
   cout << "1. HKD  2. CNY  3. USD  4. GBP  5. JPY" << endl;
   cin >> currency;
@@ -117,6 +119,7 @@ void add_status()
 	  tot_m += change(am, cur);
   }
   fina.close();
+  fina.clear();
   ifstream finb2;
   finb2.open("user_budgets.txt");
   if (!finb2.fail())
@@ -131,6 +134,7 @@ void add_status()
       	  }
   }
   finb2.close();
+  finb2.clear();
   record *users_n = new record[tot + 1];
   int i = 0;
   for (i = 0; i < tot; i++){
@@ -159,6 +163,7 @@ void add_status()
   delete [] users;
   delete [] users_n;
   fouta.close();
+  fouta.clear();
 }
 
 void del_status()
