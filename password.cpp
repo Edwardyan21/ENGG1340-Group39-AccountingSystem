@@ -35,9 +35,8 @@ string enc(string a){
 void store_userkeys(string uk){
 	uk = enc(uk);
 	ofstream pout;
-	string pw;
 	pout.open("KeySecured.txt");
-	pout << pw;
+	pout << uk;
 	pout.close();
 }
 
