@@ -27,6 +27,11 @@ int main()
       cout << "Too long! Set another one: ";
       getline(cin, user_name);
     }
+    while (user_name == "")
+    {
+      cout << "Empty user name! Set another one: ";
+      getline(cin, user_name);
+    }
     cout << "Hello " << user_name << "! Please set your password in no more than 20 characters: ";
     getline(cin, user_keys);
     while (user_keys.length() > 20)
@@ -43,10 +48,10 @@ int main()
   
   //enter password to get into the interface
   user_name = get_username();
-  string correct_keys = get_userkeys();
+  string keys = get_userkeys();
   cout << "Welcome " << user_name << "!\nPlease enter your password:";
   cin >> user_keys;
-  while (user_keys != correct_keys)
+  while (enc(user_keys) != keys)
   {
     cout << "Opps, wrong keys, Please try again: ";
   }
