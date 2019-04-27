@@ -11,6 +11,7 @@
 
 string transfer_category(int);
 string transfer_account(int);
+string transfer_currency(int);
 double Calculate_money(string);
 
 
