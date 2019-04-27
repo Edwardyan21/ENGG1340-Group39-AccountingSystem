@@ -382,7 +382,7 @@ void budgets()
     cin >> tmpi2;
     while (tmpi2 <= 0 || tmpi2 >= 100000000)
     {
-      cout << "Opps, wrong choice, please try again: " << endl;
+      cout << "Opps, out of range, please try again: " << endl;
       cin >> tmpi2;
     }
     ofstream foutb;
@@ -399,7 +399,7 @@ void budgets()
     cin >> tmpi2;
     while (tmpi2 < 1 || tmpi2 > 12)
     {
-      cout << "Opps, wrong choice, please try again: " << endl;
+      cout << "Opps, invalid, please try again: " << endl;
       cin >> tmpi2;
     }
     ifstream finb2;
