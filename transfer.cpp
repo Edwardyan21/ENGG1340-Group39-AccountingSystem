@@ -1,3 +1,71 @@
+#include<iostream>
+#include<cstdlib>
+#include<cstdio>
+#include<cstring>
+#include<string>
+#include<iomanip>
+#include<fstream>
+#include<cctype>
+#include "transfer.h"
+//category: 1. Food 2. Transportation 3. Living expense 4. Shopping 5. Education 6. Others 7. Salary 8. Prizes 9. Presents 10. Otherrewards
+//account: 1. Bank 2. Credit 3. Cash
+string transfer_category(int u_in)
+{
+  string res;
+  switch (u_in)
+  {
+    case 1:
+      res = "Food";
+      break;
+    case 2:
+      res = "Transportation";
+      break;
+    case 3:
+      res = "Living Expense";
+      break;
+    case 4:
+      res = "Shopping";
+      break;
+    case 5:
+      res = "Education";
+      break;
+    case 6:
+      res = "Other Expense";
+      break;
+    case 7:
+      res = "Salary";
+      break;
+    case 8:
+      res = "Prizes";
+      break;
+    case 9:
+      res = "Presents";
+      break;
+    case 10:
+      res = "Other Income";
+      break;
+  }
+  return res;
+}
+
+string transfer_account(int u_in)
+{
+  string res;
+  switch (u_in)
+  {
+    case 1:
+      res = "Bank";
+      break;
+    case 2:
+      res = "Credit";
+      break;
+    case 3:
+      res = "Cash";
+      break;
+  }
+  return res;
+}
+
 double Calculate_money(string user_input)
 {
   if (user_input[0] == '-' || user_input[0] == '+')
