@@ -72,7 +72,7 @@ void add_status()
   }
   cout << "Please enter the date: ";
   cin >> date;
-  cout << "Please enter the amount(0~9,+,-): ";
+  cout << "Please enter the amount(0~9,+,-,integer expression only): ";
   cin >> samount;
   amount = Calculate_money(samount);
   if (amount < 0) amount = 0;
