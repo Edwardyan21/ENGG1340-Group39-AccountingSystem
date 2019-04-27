@@ -224,7 +224,7 @@ void del_status()
       			cout << setw(2) << users[i].get_month() << "." << left << setw(3) << users[i].get_date();
       			cout << right << setw(15) << fixed << setprecision(2) << users[i].get_amo() << left << setw(4) << transfer_currency(users[i].get_cur());
       			cout << setw(16) << transfer_category(users[i].get_cat()) << setw(7) << transfer_account(users[i].get_acc());
-      			cout << "Are you sure you want to delete this record?(Y/N)";
+      			cout << "\nAre you sure you want to delete this record?(Y/N)";
       			cin >> c;
       			if (c == 'Y'){
       				check = false;
