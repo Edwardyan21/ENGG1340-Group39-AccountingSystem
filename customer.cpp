@@ -9,7 +9,7 @@
 #include "customer.h"
 #include "transfer.h"
 using namespace std;
-class record
+/*class record
 {
   public:
     int get_cur() { return currency; }
@@ -32,7 +32,7 @@ class record
     int month, date, category, account;
     double amount;
 };
-
+*/
 
 //detailstatus.txt: month date amount currency category account
 //category: 1. Food 2. Transportation 3. Living expense 4. Shopping 5. Education 6. Others 7. Salary 8. Prizes 9. Presents 10. Otherrewards
@@ -134,7 +134,7 @@ void view_status()
     }
     double *tot_cate = new double [11]{};
     double *tot_acc = new double [4]{};
-    double max_in = max_out = 0;
+    double max_in =0, max_out = 0;
     for (int i = 0; i < tot; i++)
     {
       if (users[i].get_month() == tmpi2)
@@ -193,7 +193,7 @@ void budgets()
     }
     ofstream foutb;
     foutb.open("user_budgets.txt");
-    fout << tmpi2 << endl;
+    foutb << tmpi2 << endl;
     foutb.close();
     foutb.clear();
   }
