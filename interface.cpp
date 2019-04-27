@@ -79,15 +79,16 @@ void interface()
   
           cout << "Please set your name in no more than 20 characters: ";
           getline(cin, user_name);
-          while (user_name.length() > 20)
+          while (user_name.length() > 20 || user_name == "")
           {
-            cout << "Too long! Set another one: ";
-            getline(cin, user_name);
-          }
-           while (user_name == "")
-          {
-            cout << "Empty user name! Set another one: ";
-            getline(cin, user_name);
+            if(user_name == ""){
+              cout << "Empty user name! Try another one: ";
+              getline(cin, user_name);
+            }
+            else{
+              cout << "Too long! Try another one: ";
+              getline(cin, user_name);
+            }
           }
           store_username(user_name);
           cout << "Success!" << endl;
@@ -115,15 +116,16 @@ void interface()
           }
           cout << "Please set your new password in no more than 20 characters: ";
           getline(cin, user_keys);
-          while (user_keys.length() > 20)
+          while (user_keys.length() > 20 || user_keys == "")
           {
-            cout << "Too long! Try another one: ";
-            getline(cin, user_keys);
-          }
-          while (user_keys == "")
-          {
-            cout << "Empty key! Set another one: ";
-            getline(cin, user_keys);
+            if(user_keys == ""){
+              cout << "Empty key! Try another one: ";
+              getline(cin, user_keys);
+            }
+            else{
+              cout << "Too long! Try another one: ";
+              getline(cin, user_keys);
+            }
           }
           cout << "Okay! Setting..." <<endl;
           store_userkeys(user_keys); // will be encrypted
