@@ -6,8 +6,8 @@ using namespace std;
 bool is_firsttime(){
 	ifstream fin;
 	fin.open("UserName.txt");
-	if (fin.fail()) return false;
-	else return true;
+	if (fin.fail()) return true;
+	else return false;
 }
 
 void store_username(string un){
